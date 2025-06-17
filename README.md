@@ -39,7 +39,9 @@ eComerce/
     git clone https://github.com/Redo-on/eComerce.git
     cd eComerce
 
+    exit
 ### 2. Start the backend server
+```bash
     cd server
     npm install
     npm start
