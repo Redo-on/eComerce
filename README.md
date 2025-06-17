@@ -24,13 +24,13 @@ Welcome to the **eCommerce App**, a full-stack online shopping platform built wi
 - MongoDB (for storing products, users, etc.)
 
 ## 📁 Folder Structure
-
+```bash
 eComerce/
 ├── client/ # Frontend React application 
 ├── server/ # Backend Node/Express API
 ├── README.md
 └── ...
-
+```
 
 ## 🚀 Getting Started
 
@@ -52,7 +52,7 @@ eComerce/
     npm start
 ```
 
-## ✅ Requirements
+# ✅ Requirements
     - Node.js v18+
     - MongoDB (local installation or MongoDB Atlas cloud)
 
