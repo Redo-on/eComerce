@@ -25,3 +25,21 @@ Welcome to the **eCommerce App**, a full-stack online shopping platform built wi
 
 ## 📁 Folder Structure
 
+eComerce/
+├── client/ # Frontend React application
+├── server/ # Backend Node/Express API
+├── README.md
+└── ...
+
+
+## 🚀 Getting Started
+
+### 1. Clone the repo
+```bash
+    git clone https://github.com/Redo-on/eComerce.git
+    cd eComerce
+
+### 2. Start the backend server
+    cd server
+    npm install
+    npm start
