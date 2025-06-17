@@ -26,7 +26,7 @@ Welcome to the **eCommerce App**, a full-stack online shopping platform built wi
 ## 📁 Folder Structure
 
 eComerce/
-├── client/ # Frontend React application
+├── client/ # Frontend React application 
 ├── server/ # Backend Node/Express API
 ├── README.md
 └── ...
@@ -38,10 +38,32 @@ eComerce/
 ```bash
     git clone https://github.com/Redo-on/eComerce.git
     cd eComerce
-
-    exit
+```
 ### 2. Start the backend server
 ```bash
     cd server
     npm install
     npm start
+```
+### 3. Start the frontend
+```bash
+    cd client
+    npm install
+    npm start
+```
+
+## ✅ Requirements
+    - Node.js v18+
+    - MongoDB (local installation or MongoDB Atlas cloud)
+
+## 🧠 Author
+
+    Redon Kurtaj
+    📍 Kosovo
+    📧 redonkurtaj21@gmail.com
+    🔗 ([LinkedIn](https://www.linkedin.com/in/redon-kurtaj-67196b343/))
+    🐙 ([GitHub] (https://github.com/Redo-on))
+
+## 🙌 Based After
+    🔗 ([YouTube](https://www.youtube.com/@LearningPartnerDigital))
+    🔗 ([Video](https://youtu.be/RzgYWoZ3wh0?si=OTT2MrBBKrh-oenw))
