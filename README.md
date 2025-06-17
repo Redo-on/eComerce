@@ -61,14 +61,15 @@ npm start
 
     MongoDB (local installation or MongoDB Atlas cloud)
 
-🧠 Author
+## 🧠 Author
 
 Redon Kurtaj
 📍 Kosovo
 📧 redonkurtaj21@gmail.com
-🔗 LinkedIn
-🐙 GitHub
-🙌 Based After
+🔗 [LinkedIn](https://www.linkedin.com/in/redonkurtaj/)
+🐙 [GitHub](https://github.com/Redo-on)
 
-🔗 YouTube
-🔗 Video
+## 🙌 Based After
+
+🔗 [YouTube](https://www.youtube.com/@LearningPartnerDigital)
+🔗 [Video](https://youtu.be/RzgYWoZ3wh0?si=OTT2MrBBKrh-oenw)
