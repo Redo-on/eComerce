@@ -40,20 +40,21 @@ text
 git clone https://github.com/Redo-on/eComerce.git
 cd eComerce
 
+```
 2. Start the backend server
-bash
+```bash
 
 cd server
 npm install
 npm start
-
+```
 3. Start the frontend
-bash
+```bash
 
 cd client
 npm install
 npm start
-
+```
 ✅ Requirements
 
     Node.js v18+
