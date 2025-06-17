@@ -60,20 +60,20 @@ npm start
     Node.js v18+
 
     MongoDB (local installation or MongoDB Atlas cloud)
-
 ## 🧠 Author
 
-    Redon Kurtaj  
+Redon Kurtaj  
 
-    📍 Kosovo  
+📍 Kosovo  
 
-    📧 redonkurtaj21@gmail.com  
+📧 redonkurtaj21@gmail.com  
 
-    🔗 [LinkedIn](https://www.linkedin.com/in/redonkurtaj/)  
-    
-    🐙 [GitHub](https://github.com/Redo-on)
+🔗 [LinkedIn](https://www.linkedin.com/in/redonkurtaj/)  
+
+🐙 [GitHub](https://github.com/Redo-on)
 
 ## 🙌 Based After
 
-    🔗 [YouTube](https://www.youtube.com/@LearningPartnerDigital)  
-    🔗 [Video](https://youtu.be/RzgYWoZ3wh0?si=OTT2MrBBKrh-oenw)
+🔗 [YouTube](https://www.youtube.com/@LearningPartnerDigital)  
+
+🔗 [Video](https://youtu.be/RzgYWoZ3wh0?si=OTT2MrBBKrh-oenw)
