@@ -1,0 +1,38 @@
+{
+  "message": "",
+  "result": true,
+  "data": [
+    {
+      "designationId": 26,
+      "designation": "string"
+    },
+    {
+      "designationId": 28,
+      "designation": "Des3"
+    },
+    {
+      "designationId": 29,
+      "designation": "string"
+    },
+    {
+      "designationId": 30,
+      "designation": "Ben"
+    },
+    {
+      "designationId": 35,
+      "designation": "UI/UX Developer"
+    },
+    {
+      "designationId": 39,
+      "designation": "ss"
+    },
+    {
+      "designationId": 41,
+      "designation": "sada"
+    },
+    {
+      "designationId": 42,
+      "designation": "dev1"
+    }
+  ]
+}

@@ -1,43 +1,271 @@
-<div class="progress-wrapper">
+<div class="row" *ngIf="isCreateView">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 text-end">
+        <button style="background: blue; margin: 5px; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" class="btn btn-success" (click)="addNew()">Add New</button>
+      </div>
+    </div>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
+              <thead>
+                <tr style="background: #f8f9fa;">
+                  <th style="padding: 10px; border: 1px solid #ddd;">Emp Code</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Name</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Email</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Phone</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Designation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let employee of empList">
+                  <td style="padding: 8px; border: 1px solid #ddd;">{{employee.empCode}}</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">{{employee.empName}}</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">{{employee.empEmailId}}</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">{{employee.empContactNo}}</td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">{{employee.designation}}</td>
+
+
+                  <td>
+                    <button (click)="editEmployee(employee.empId)" style="background: #007bff; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; font-weight: bold;">Edit</button>
+                    <button (click)="deleteEmployee(employee.empId)" style="background: #dc3545; color: #fff; border: none; padding: 6px 12px; border-radius: 4px; font-weight: bold;">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+  </div>
+</div>
+<div class="row" *ngIf="!isCreateView">
+  <div class="col-12">
+
+<div class="row">
+      <div class="col-12 text-end">
+        <button class="btn btn-success" style="background: blue; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" (click)="isCreateView = true">Go To List</button>
+      </div>
+
+    <div class="progress-wrapper">
   <div id="progress-bar-container">
     <ul>
-      <li class="step step01" (click)="setCurrentStep(step)" [ngClass]="step.stepName == activeStep.stepName? 'active':''" *ngFor = "let step of stepsList">
+      <li class="step step01" (click)="setCurrentStep(step)" [ngClass]="step.stepName == activeStep.stepName? 'active':''" *ngFor="let step of stepsList">
         <div class="step-inner">{{step.stepName}}</div>
       </li>
     </ul>
     <div id="line">
-      <div id="line-progress"></div>
+      <div id="line-progress" [style.width.%]="stepperCompletionValue"></div>
     </div>
     <!-- progress-bar-container -->
     <div id="progress-content-section">
+      <!-- Step 1: Basic Details -->
       <div class="section-content step1 active" *ngIf="activeStep.stepName == 'Basic Details'">
         <h2>Step 1</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-          impedit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, soluta impedit. Eligendi aliquam ratione porro minus temporibus facilis iure numquam.
-        </p>
+        <div style="max-width: 1100px; margin: 30px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #eee; padding: 24px;">
+          <div style="background: #ffe033; padding: 15px; font-weight: bold; font-size: 1.3rem; border-radius: 4px 4px 0 0; margin-bottom: 24px;">
+            Add Employee
+          </div>
+          <form>
+            <!-- ...Basic Details Form Rows... -->
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <label>Name :</label>
+                <input type="text"  [(ngModel)]="employObject.empName" name="empName" placeholder="Enter Name" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Email :</label>
+                <input type="email" [(ngModel)]="employObject.empEmailId" name="empEmailId" placeholder="Enter Email" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Password :</label>
+                <input type="password" [(ngModel)]="employObject.password" placeholder="Enter Password" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <label>Designation :</label>
+                <select class="form-select"
+                [(ngModel)]="employObject.designationId"
+                name="designationId"
+                style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  <option value="">Select Designation</option>
+                  @for (item of designationList; track $index) {
+                    <option [value]="item.designationId">{{item.designation}}</option>
+                  }
+                </select>
+                 </div>
+              <div style="flex: 1;">
+                <label>Contact No :</label>
+                <input type="text" [(ngModel)]="employObject.empContactNo" placeholder="Enter Contact No" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Personal Email ID :</label>
+                <input type="email" [(ngModel)]="employObject.empPersonalEmailId" placeholder="Enter Personal EmailID" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <label>Alternate Contact No :</label>
+                <input type="text" [(ngModel)]="employObject.empAltContactNo" placeholder="Alternate Contact No." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Total Years of Experience :</label>
+                <input type="text" [(ngModel)]="employObject.empExpTotalYear" placeholder="Enter total Years of Experience" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Total Month of Experience :</label>
+                <input type="text" [(ngModel)]="employObject.empExpTotalMonth" placeholder="Enter month of Experience" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <label>City :</label>
+                <input type="text" [(ngModel)]="employObject.empCity" placeholder="Enter City" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>State :</label>
+                <input type="text" [(ngModel)]="employObject.empState" placeholder="Enter State" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Address :</label>
+                <textarea [(ngModel)]="employObject.empAddress" placeholder="Enter Address" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;"></textarea>
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <label>Pincode :</label>
+                <input type="text" [(ngModel)]="employObject.empPinCode" placeholder="Enter Pincode" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Personal State :</label>
+                <input type="text" [(ngModel)]="employObject.empPerState" placeholder="Enter Personal State" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Personal Address :</label>
+                <textarea [(ngModel)]="employObject.empPerAddress" placeholder="Enter Personal Address" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;"></textarea>
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px; margin-bottom: 16px;">
+              <div style="flex: 1;">
+                <label>Personal City :</label>
+                <input [(ngModel)]="employObject.empPerCity" type="text" placeholder="Enter Personal City" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;">
+                <label>Personal Pin Code :</label>
+                <input [(ngModel)]="employObject.empPerPinCode" type="text" placeholder="Enter Personal Pin Code" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+              </div>
+              <div style="flex: 1;"></div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-end">
+                <button (click)="goToStep2()" style="background: blue; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" class="btn btn-primary">Next</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
+
+      <!-- Step 2: Skills -->
       <div class="section-content step2 active" *ngIf="activeStep.stepName == 'Skills'">
         <h2>Step 2</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-          impedit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, soluta impedit. Eligendi aliquam ratione porro minus temporibus facilis iure numquam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-          impedit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, soluta impedit. Eligendi aliquam ratione porro minus temporibus facilis iure numquam.
-        </p>
+        <div style="max-width: 1100px; margin: 30px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #eee; padding: 24px;">
+          <h5 style="margin-bottom: 16px;">Add Skills -</h5>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
+              <thead>
+                <tr style="background: #f8f9fa;">
+                  <th style="padding: 10px; border: 1px solid #ddd;">Skill Name</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Total Experience</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Last Version</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let skill of employObject.ErpEmployeeSkills">
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <input [(ngModel)]="employObject.skill" type="text" placeholder="Skill" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <input [(ngModel)]="employObject.totalYearExp" type="text" placeholder="Total Experience" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <input [(ngModel)]="employObject.lastVersionUsed" type="text" placeholder="Last Version" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <div class="row">
+                      <div class="col-12 text-end">
+                        <button style="background: blue; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" class="btn btn-primary">Next</button>
+                      </div>
+                    </div>  
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button style="background: #17a2b8; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" (click)="addSkills()">Add</button>
+          </div>
+              <div class="col-12 text-end" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <button (click)="goToStep1()" style="align-self: flex-end; background: red; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" class="btn btn-primary">Prev</button>
+                <button (click)="goToStep3()" style="align-self: flex-end; background: blue; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" class="btn btn-primary">Next</button>
+              
+            </div>
+        </div> 
       </div>
-      <div class="section-content step3 active" *ngIf="activeStep.stepName == 'Experience'">
+
+      <!-- Step 3: Experience -->
+      <div class="section-content step3 active"  *ngIf="activeStep.stepName == 'Experience'">
         <h2>Step 3</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-          impedit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, soluta impedit. Eligendi aliquam ratione porro minus temporibus facilis iure numquam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-          impedit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, soluta impedit. Eligendi aliquam ratione porro minus temporibus facilis iure numquam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat,
-          impedit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, soluta impedit. Eligendi aliquam ratione porro minus temporibus facilis iure numquam.
-        </p>
-      </div>
+        <div style="max-width: 1100px; margin: 30px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #eee; padding: 24px;">
+          <h5 style="margin-bottom: 16px;">Add <span style="color:#007bff;">Experience</span> -</h5>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 8px;">
+              <thead>
+                <tr style="background: #f8f9fa;">
+                  <th style="padding: 10px; border: 1px solid #ddd;">Company</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Start Date</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">End Date</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Designation</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Project</th>
+                  <th style="padding: 10px; border: 1px solid #ddd;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let experience of employObject.ErmEmpExperiences">
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <input [(ngModel)]="employObject.companyName" type="text" placeholder="Company" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <input [(ngModel)]="employObject.startDate" type="date" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <input [(ngModel)]="employObject.endDate" type="date" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <select class="form-select" [(ngModel)]="employObject.designationId" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                        <option value="">Select Designation</option>
+                        @for (item of designationList; track $index) {
+                            <option [value]="item.DesignationId">{{item.designation}}</option>
+                        }
+                        
+                    </select>
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <input [(ngModel)]="employObject.projectsWorkedOn" type="text" placeholder="Project" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                  </td>
+                  <td style="padding: 8px; border: 1px solid #ddd;">
+                    <button style="background: #28a745; color: #fff; border: none; padding: 6px 16px; border-radius: 4px; font-weight: bold; margin-right: 4px;">Save</button>
+                    <button style="background: #dc3545; color: #fff; border: none; padding: 6px 16px; border-radius: 4px; font-weight: bold;">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button style="background: #17a2b8; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" (click)="addExp()">Add</button>
+          </div>
+         <div class="col-12 text-end" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <button (click)="goToStep2()" style="align-self: flex-end; background: red; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" class="btn btn-primary">Prev</button>
+                <button (click)="saveEmployee()" style="align-self: flex-end; background: blue; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-weight: bold;" class="btn btn-primary">Finish</button>
+            </div>
+      </div>  
     </div>
+  </div>
+    <!-- progress-content-section -->
   </div>
   <!-- progress-wrapper -->
 </div>
+  </div>
+</div>
+

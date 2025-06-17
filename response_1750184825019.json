@@ -1,0 +1,168 @@
+{
+  "message": "",
+  "result": true,
+  "data": [
+    {
+      "empName": "Poonam",
+      "empId": 1182,
+      "empCode": "CT-3171",
+      "empEmailId": "poonam123@gmail.com",
+      "empDesignation": "string",
+      "role": "sam",
+      "mobile": "9329509540"
+    },
+    {
+      "empName": "karuma kumari edited",
+      "empId": 1169,
+      "empCode": "CT-3211",
+      "empEmailId": "karuma@gmail.com",
+      "empDesignation": "string",
+      "role": "sam",
+      "mobile": "2389999"
+    },
+    {
+      "empName": "kaci",
+      "empId": 1168,
+      "empCode": "CT-3201",
+      "empEmailId": "dddd",
+      "empDesignation": "string",
+      "role": "sam",
+      "mobile": "123541222"
+    },
+    {
+      "empName": "raju",
+      "empId": 1166,
+      "empCode": "CT-3181",
+      "empEmailId": "sd",
+      "empDesignation": "string",
+      "role": "sam",
+      "mobile": "21211"
+    },
+    {
+      "empName": "likkiiii",
+      "empId": 1155,
+      "empCode": "CT-3121",
+      "empEmailId": "likkki@gmail.com",
+      "empDesignation": "UI/UX Developer",
+      "role": "Team Lead",
+      "mobile": "1231231233"
+    },
+    {
+      "empName": "Sara David",
+      "empId": 1154,
+      "empCode": "CT-3111",
+      "empEmailId": "hadamo@mailinator.com",
+      "empDesignation": "string",
+      "role": "my",
+      "mobile": "9090909090"
+    },
+    {
+      "empName": "trish",
+      "empId": 1144,
+      "empCode": "CT-3101",
+      "empEmailId": "trish@gg.com",
+      "empDesignation": "Des3",
+      "role": "Team Lead",
+      "mobile": "3423211"
+    },
+    {
+      "empName": "Barren P",
+      "empId": 1137,
+      "empCode": "CT-3131",
+      "empEmailId": "booz@comp.com",
+      "empDesignation": "sada",
+      "role": "Junior Developer",
+      "mobile": "3344332244"
+    },
+    {
+      "empName": "Test User",
+      "empId": 1095,
+      "empCode": "CT-2871",
+      "empEmailId": "aaa",
+      "empDesignation": "string",
+      "role": "sam",
+      "mobile": "aaa"
+    },
+    {
+      "empName": "raju",
+      "empId": 1082,
+      "empCode": "CT-2831",
+      "empEmailId": "samd",
+      "empDesignation": "string",
+      "role": "Junior Developer",
+      "mobile": "string"
+    },
+    {
+      "empCode": "",
+      "empId": 0,
+      "empName": "rewf",
+      "empEmailId": "fewrwr",
+      "empDesignationId": 0,
+      "empContactNo": "",
+      "empAltContactNo": "",
+      "empPersonalEmailId": "",
+      "empExpTotalYear": 0,
+      "empExpTotalMonth": 0,
+      "empCity": "",
+      "empState": "",
+      "empPinCode": "",
+      "empAddress": "",
+      "empPerCity": "",
+      "empPerState": "",
+      "empPerPinCode": "",
+      "empPerAddress": "",
+      "password": "",
+      "ErpEmployeeSkills": [
+        {
+          "empSkillId": 0,
+          "empId": 0,
+          "skill": "",
+          "totalYearExp": 0,
+          "lastVersionUsed": ""
+        }
+      ],
+      "ErmEmpExperiences": [
+        {
+          "empExpId": 0,
+          "empId": 0,
+          "companyName": "",
+          "startDate": "2025-06-17T15:07:16.249Z",
+          "endDate": "2025-06-17T15:07:16.249Z",
+          "designation": "",
+          "projectsWorkedOn": ""
+        }
+      ],
+      "companyName": "wfwfe",
+      "startDate": "2323-02-13",
+      "endDate": "1232-12-31",
+      "designationId": "undefined",
+      "projectsWorkedOn": "eqew",
+      "skill": "eqwewq",
+      "totalYearExp": "dqwdwqd",
+      "lastVersionUsed": "wqwqdq"
+    },
+    {
+      "empCode": "",
+      "empId": 0,
+      "empName": "",
+      "empEmailId": "",
+      "empDesignationId": 0,
+      "empContactNo": "",
+      "empAltContactNo": "",
+      "empPersonalEmailId": "",
+      "empExpTotalYear": 0,
+      "empExpTotalMonth": 0,
+      "empCity": "",
+      "empState": "",
+      "empPinCode": "",
+      "empAddress": "",
+      "empPerCity": "",
+      "empPerState": "",
+      "empPerPinCode": "",
+      "empPerAddress": "",
+      "password": "",
+      "ErpEmployeeSkills": [],
+      "ErmEmpExperiences": []
+    }
+  ]
+}
